@@ -115,13 +115,10 @@ let z3 = addUp(numbers)
 console.log(z3)
 
 // object as a parameter and object as a return type
-
-
 let info = {
     firstName:"amol",
     lastName:"rao",
     city:"nagpur"
-
 }
 
 // program 4
@@ -139,3 +136,101 @@ function updatCity(obj){
 
 let z4 = updatCity(info)
 console.log(z4)
+
+// function as a parameter to another function
+
+// let x1 = 10 
+// console.log(x1)
+
+// let addV = function(x,y){
+//     console.log(x+y)
+// }
+// console.log(addV) // printing function definition
+// addV(12,13) // calling the function
+
+
+
+
+let subtraction = function(x,y){
+    return x -y
+}
+
+// console.log(subtraction) // printing the definition
+// subtraction(12,3) // call
+
+function Sub(a,b,fn){
+     //let a =11
+     //let b = 5 
+    // let fn = function(x,y){
+    //     return x -y
+    // }
+    let s1 = fn(a,b)
+    return  s1
+}
+let s2 = Sub(11,5,subtraction)
+console.log(s2)
+
+
+
+// function as a return type from another function
+// function additionD(){
+//     return function (){
+//         console.log('hello')
+//     }
+
+// }
+// let tty = additionD()
+// // let tty = function (){
+// //     console.log('hello')
+// // }
+// tty()
+
+
+function additionE(){
+
+    let a = function(){
+        console.log("hello")
+    }
+
+    return a
+
+}
+let tt2 = additionE()
+console.log(tt2)
+tt2()
+
+
+// let tt2 = unction(){
+//     console.log("hello")
+// }
+
+function additionE(){
+    return  function(){
+        console.log("hello")
+    }
+
+}
+let tt3 = additionE()
+console.log(tt3)
+tt3()
+
+
+let  x11 = 10
+console.log(x11)  // 10
+
+let x33 = x11
+console.log(x33) // 10
+
+x33 = 800
+console.log(x11) // 10
+console.log(x33) // 800
+
+let arr2 = [11,22,33,44]
+console.log(arr2)
+
+let arr3 = arr2
+console.log(arr3)
+
+arr3[2] = 990
+console.log(arr3) //[11,22,990,44]
+console.log(arr2) //[11,22,33,44]
