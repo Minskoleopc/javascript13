@@ -49,3 +49,20 @@ buttonA.addEventListener('click',function(){
 // }
 
 // info.parent.mother = "kanchan s"
+
+// // array
+// let aa = [22,33]
+// aa.findIndex()
+// aa.length
+// // string
+// let c = "chinmay"
+// c.toUpperCase()
+// c.length
+// // htmlElement
+// let htmlE = document.querySelector('h1')
+// htmlE.textContent
+// htmlE.addEventListener
+
+
+// Javascript -- Object -- property and method
+// method action and return type
