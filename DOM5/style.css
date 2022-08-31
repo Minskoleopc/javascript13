@@ -1,0 +1,21 @@
+/* h1 {
+    color: red;
+} */
+
+.one {
+    color: peru;
+    background-color: black;
+    height: 100px;
+    width: 200px;
+}
+
+.two {
+    color:green;
+    background-color:red;
+    height: 100px;
+    width: 200px;
+}
+
+#three {
+    color:plum
+}
