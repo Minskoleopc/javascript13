@@ -31,8 +31,7 @@ ulList.addEventListener('click',function(event){
           
 
         }
-        else if(event.target.className == "down"){
-
+        else if(event.target.className == "down"){07-Pig-Game
             // statements
             let li = event.target.parentElement
             let ul = li.parentElement
