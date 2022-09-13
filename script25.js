@@ -94,7 +94,7 @@ accounts.forEach(function(el){
 //  0  1  2  3   4 5  6  0
 // [22,33,44,55,66,77,88,99]
 accounts.forEach(function(el){
-    console.log(el.movements.slice(0,5))
+    console.log(el.movements.splice(-5))
 })
 
 

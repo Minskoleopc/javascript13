@@ -97,3 +97,6 @@ let info = {
 }
 //console.log(info.fullName?.firstName)
 console.log(info.parent?.mother?.firstName)
+
+
+

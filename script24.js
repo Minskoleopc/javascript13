@@ -33,7 +33,6 @@ let students  = [
     }
 ]
 // first user with python skills
-
 let a = students.find(function(el){
     return el.skills.includes('python')
 })
