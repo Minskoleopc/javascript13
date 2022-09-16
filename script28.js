@@ -11,7 +11,6 @@
 // amol.display()
 
 
-
 // let a = amol.display
 
 // // // let a = function(){
@@ -97,30 +96,6 @@ printColor.apply(audi,["hello Good Evening"])
 
 let q1 = printColor.bind(tata)
 q1('Bye !')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // // //.dot notation and bracket notation
 
