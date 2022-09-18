@@ -12,7 +12,7 @@ const account1 = {
   pin: 1111,
 };
 
-const account2 = { 
+const account2 = {
   owner: 'Jessica Davis', // jd
   movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
   interestRate: 1.5,
@@ -78,15 +78,59 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 //userName creation 
 
-function createUserName(accs){
+function updateMovements(movs) {
+  //console.log(movs)
+  movs.forEach(function (el, index) {
+    let type = el > 0 ? "deposit" : "withdrawal"
+    let html = `
+        <div class="movements__row">
+        <div class="movements__type movements__type--${type}">${index + 1} ${type}</div>
+        <div class="movements__value">${el}€</div>
+        </div>
+    `
+    containerMovements.insertAdjacentHTML('beforeend', html)
+  })
+}
+
+function calculateSummary(movs) {
+
+  let deposit = movs.filter(function (el) {
+    return el > 0
+  }).reduce(function (acc, el) {
+    return acc + el
+  }, 0)
+
+  labelSumIn.textContent = `${deposit}€`
+
+  let withdrawal = movs.filter(function (el) {
+    return el < 0
+  }).reduce(function (acc, el) {
+    return acc + el
+  }, 0)
+
+  labelSumOut.textContent = `${withdrawal}€`
+
+
+  let bal = movs.reduce(function (acc, el) {
+    return acc + el
+  }, 0)
+
+  labelBalance.textContent = `${bal}€`
+
+}
+
+
+
+
+function createUserName(accs) {
   accs.forEach(element => {
-     // console.log(element)
-     element.username = 
-     element.owner.split(' ')
-     .map(function(el){
-        return el[0]
-     })
-     .join('').toLowerCase()
+    // console.log(element)
+    element.username =
+      element.owner.split(' ')
+        .map(function (el) {
+          return el[0]
+        })
+        .join('').toLowerCase()
   });
 
 }
@@ -98,19 +142,41 @@ console.log(accounts)
 let currentAccount;
 console.log(currentAccount)
 
-btnLogin.addEventListener('click',function(e){
+btnLogin.addEventListener('click', function (e) {
   e.preventDefault()
   let userName = inputLoginUsername.value
-  let pinC =  inputLoginPin.value
+  let pinC = inputLoginPin.value
 
-  currentAccount = accounts.find(function(el){
+  currentAccount = accounts.find(function (el) {
     return el.username == userName && el.pin == pinC
   })
   console.log(currentAccount)
   containerApp.style.opacity = '100';
   inputLoginUsername.value = "";
-  inputLoginPin.value ="";
+  inputLoginPin.value = "";
   console.log(labelWelcome.textContent)
   labelWelcome.textContent = ` welcome ${currentAccount.owner.split(' ')[0]} !`
+  updateMovements(currentAccount.movements)
+  calculateSummary(currentAccount.movements)
 
 })
+
+
+// btnTransfer.addEventListener('click', function (e) {
+//   e.preventDefault()
+//   let ruser = inputTransferTo.value
+//   let amountToTranser = inputTransferAmount.value
+//   let truser = accounts.find(function (el) {
+//     return el.username === ruser
+//   })
+//   if (truser) {
+//     truser.movements.push(amountToTranser)
+//     currentAccount.movements.push(-amountToTranser)
+//   }
+//   inputTransferTo.value =''
+//   inputTransferAmount.value=''
+//   updateMovements(currentAccount.movements)
+//   calculateSummary(currentAccount.movements)
+
+
+// })
