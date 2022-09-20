@@ -119,9 +119,6 @@ function calculateSummary(movs) {
 
 }
 
-
-
-
 function createUserName(accs) {
   accs.forEach(element => {
     // console.log(element)
