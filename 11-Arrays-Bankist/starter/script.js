@@ -78,8 +78,16 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 //userName creation 
 
+1 - 1
+2 - 2
+3 - 3
+4
+
+
+
 function updateMovements(movs) {
   //console.log(movs)
+  containerMovements.innerHTML = " "
   movs.forEach(function (el, index) {
     let type = el > 0 ? "deposit" : "withdrawal"
     let html = `
@@ -92,29 +100,30 @@ function updateMovements(movs) {
   })
 }
 
-function calculateSummary(movs) {
-
-  let deposit = movs.filter(function (el) {
+function calculateSummary(currentAccount) {
+  let deposit = currentAccount.movements.filter(function (el) {
     return el > 0
   }).reduce(function (acc, el) {
     return acc + el
   }, 0)
-
+  currentAccount.deposit = deposit
   labelSumIn.textContent = `${deposit}€`
 
-  let withdrawal = movs.filter(function (el) {
+  let withdrawal = currentAccount.movements.filter(function (el) {
     return el < 0
   }).reduce(function (acc, el) {
     return acc + el
   }, 0)
 
+
+  currentAccount.withdrawal = withdrawal
   labelSumOut.textContent = `${withdrawal}€`
 
 
-  let bal = movs.reduce(function (acc, el) {
+  let bal = currentAccount.movements.reduce(function (acc, el) {
     return acc + el
   }, 0)
-
+  currentAccount.bal = bal
   labelBalance.textContent = `${bal}€`
 
 }
@@ -154,26 +163,53 @@ btnLogin.addEventListener('click', function (e) {
   console.log(labelWelcome.textContent)
   labelWelcome.textContent = ` welcome ${currentAccount.owner.split(' ')[0]} !`
   updateMovements(currentAccount.movements)
-  calculateSummary(currentAccount.movements)
+  calculateSummary(currentAccount)
 
 })
 
 
-// btnTransfer.addEventListener('click', function (e) {
-//   e.preventDefault()
-//   let ruser = inputTransferTo.value
-//   let amountToTranser = inputTransferAmount.value
-//   let truser = accounts.find(function (el) {
-//     return el.username === ruser
-//   })
-//   if (truser) {
-//     truser.movements.push(amountToTranser)
-//     currentAccount.movements.push(-amountToTranser)
-//   }
-//   inputTransferTo.value =''
-//   inputTransferAmount.value=''
-//   updateMovements(currentAccount.movements)
-//   calculateSummary(currentAccount.movements)
+btnTransfer.addEventListener('click', function (e) {
+  e.preventDefault()
+  console.log(currentAccount.bal)
+  let ruser = inputTransferTo.value
+  let amountToTranser = Number(inputTransferAmount.value)
+  let truser = accounts.find(function (el) {
+    return el.username === ruser
+  })
+  if (truser && currentAccount.bal > amountToTranser && currentAccount.username !== ruser) {
+    truser.movements.push(amountToTranser)
+    currentAccount.movements.push(-amountToTranser)
+  }
+  inputTransferTo.value = ''
+  inputTransferAmount.value = ''
+  updateMovements(currentAccount.movements)
+  calculateSummary(currentAccount)
+  console.log(currentAccount)
+})
 
+btnLoan.addEventListener('click', function (e) {
+  e.preventDefault()
+  let reqAmount = Number(inputLoanAmount.value) // string
+  if (reqAmount > 0) {
+    currentAccount.movements.push(reqAmount)
+    updateMovements(currentAccount.movements)
+    calculateSummary(currentAccount)
+  }
+  inputLoanAmount.value = "";
 
-// })
+})
+
+btnClose.addEventListener('click', function (e) {
+  e.preventDefault()
+  let closeacc = inputCloseUsername.value
+  let pinC = Number(inputClosePin.value)
+  let dUserIndex = accounts.findIndex(function (el) {
+    return el.username == closeacc && el.pin == pinC
+  })
+  if (dUserIndex) {
+    accounts.splice(dUserIndex, 1)
+  }
+  inputCloseUsername.value = ""
+  inputClosePin.value = ""
+  
+})
