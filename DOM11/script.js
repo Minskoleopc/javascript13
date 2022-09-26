@@ -35,7 +35,7 @@ console.log(para)
 // headingTwo.prepend(para)
 // headingTwo.append(para)
 //headingTwo.before(para)
-headingTwo.after(para)
+//headingTwo.after(para)
 // deleting the element at the run tym 
 document.querySelector('#del').addEventListener('click',function(){
     //para.remove()
@@ -44,7 +44,6 @@ document.querySelector('#del').addEventListener('click',function(){
 })
 
 // Style Attribute
-
 // 2 pm ---- Oops
 
 

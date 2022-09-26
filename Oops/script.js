@@ -194,6 +194,21 @@ for(let values of Object.values(vehiclesC)){
 // console.log(amol)
 
 
+// template --
+
+// Encapsulation 
+
+// Polymorphism 
+
+// Inheritance 
+
+// Abstraction 
+
+//9pm - DOM  --- Nityanad   --- 8 am support
+//8 am --- DOM Nityanad    ---- 10 am
+//7:30 pm Map Nityanad0     ----- 8:30 pm
+
+
 
 
 
