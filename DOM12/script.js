@@ -31,8 +31,7 @@ headFour.classList.toggle('two')
 console.log(headFour.classList.contains('two'))
 console.log(headFour.className) // retrive
 
-
-
+/******************************************************************************/
 
 
 
