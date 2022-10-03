@@ -63,4 +63,3 @@ realoadButton.addEventListener('click',function(){
 Sview.addEventListener('click',function(){
     headOne.scrollIntoView()
 })
-

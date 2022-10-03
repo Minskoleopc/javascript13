@@ -59,10 +59,6 @@
 // }
 // let audi = new Vehicle("red","SUV")
 
-
-
-
-
 // 2) Es6 class
 
 // class Person {
@@ -122,8 +118,17 @@
 // amol6.init("amol6","rao6",34,56)
 // console.log(amol6)
 
+// class Person {
+//     fullName = "chinmay";
 
+//     display(){
+//         console.log("hello")
+//     }
 
+// }
+
+// let amol  = new Person()
+// amol.display()
 
 
 
