@@ -105,31 +105,30 @@
 // console.log(ram.getFullName())
 
 // program5
-class Person{
-    set fn(word){
-        this.fullName = word
-    }
-    get fn(){
-        return this.fullName
-    }
-    set ag(a){
-        this.age = a
-    }
-    get ag(){
-        return this.age
-    }
-}
-let ram = new Person()
-console.log(ram)
-ram.fn = "ram dani"
+// class Person{
+//     set fn(word){
+//         this.fullName = word
+//     }
+//     get fn(){
+//         return this.fullName
+//     }
+//     set ag(a){
+//         this.age = a
+//     }
+//     get ag(){
+//         return this.age
+//     }
+// }
+// let ram = new Person()
+// console.log(ram)
+// ram.fn = "ram dani"
 
-console.log(ram)
-console.log(ram.fn)
-//console.log(ram.fullName)
-
-ram.ag = 23
-console.log(ram)
-console.log(ram.ag)
+// console.log(ram)
+// console.log(ram.fn)
+// //console.log(ram.fullName)
+// ram.ag = 23
+// console.log(ram)
+// console.log(ram.ag)
 
 
 
