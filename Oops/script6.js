@@ -1,23 +1,23 @@
-// class Vehicle {
-//     constructor(wheel){
-//         this.wheel = wheel
-//     } 
+class Vehicle {
+    constructor(wheel){
+        this.wheel = wheel
+    } 
 
-//     start(){
-//         console.log('I am starting .....')
-//     }
-//     stop(){
-//         console.log('I am stoping the vehicle')
-//     } 
-// }
+    start(){
+        console.log('I am starting .....')
+    }
+    stop(){
+        console.log('I am stoping the vehicle')
+    } 
+}
 
-// class  TwoWheeler extends Vehicle {
-//     constructor(wheel,mirror){
-//         super(wheel)
-//         this.mirror = mirror
-//     }
+class  TwoWheeler extends Vehicle {
+    constructor(wheel,mirror){
+        super(wheel)
+        this.mirror = mirror
+    }
 
-// }
+}
 
 // let activa = new TwoWheeler(2,2)
 
